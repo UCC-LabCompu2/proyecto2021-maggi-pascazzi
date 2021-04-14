@@ -10,7 +10,7 @@
 | Nombre | Mail |
 |--------|------|
 | Francisco Maggi | 1810638@ucc.edu.ar |
-| Lucas Pascazzi | -mail de lucas- |
+| Lucas Pascazzi | 2008216@ucc.edu.ar |
 
 :point_up:
 
