@@ -1,0 +1,8 @@
+.horizontal-list li {
+  display: inline;
+  padding: 16px;
+}
+
+.horizontal-list li:hover {
+  background-color: rgba(10, 50, 230, 0.3);
+}
