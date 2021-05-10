@@ -1,8 +1,60 @@
-.horizontal-list li {
-  display: inline;
-  padding: 16px;
+.fila {
+  width: 100%;
+  height: auto;
+  display: flex;
 }
 
-.horizontal-list li:hover {
+.fila::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.col {
+  float: left;
+  width:auto;
+  height: inherit;
+  margin: 10px;
+  border: 5px;
+  padding: 5px;
+}
+
+#partes {
+  width: fit-content;
+  height: inherit;
+  margin: 10px;
+  border: 0;
+  padding: 5px;
+  list-style: none;
+}
+
+#partes li {
+  display: list-item;
+  padding: 20px 20px 20px 20px;
+}
+
+#grafico {
+  margin: 10px;
+  border: 0;
+  padding: 5px;
+  margin
+  width: 500px;
+  height: 300px;
+}
+
+.horizontal-list {
+  margin: 10px 100px 10px 100px;
+  border: 5px;
+  padding: 5px;
+  justify-content: center;
+}
+
+.horizontal-list li {
+  display: inline;
+  padding: 16px 30px 16px 30px;
+  justify-content: center;
+}
+
+li:hover {
   background-color: rgba(10, 50, 230, 0.3);
 }

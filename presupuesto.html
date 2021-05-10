@@ -7,6 +7,7 @@
   <meta name="keywords" content="PC, computacion">
   <title>PC part picker</title>
   <link rel='stylesheet' href="style/presupuesto.css" type="text/css">
+  <link rel='stylesheet' href="style/common.css" type="text/css">
 </head>
 
 <body>
@@ -14,24 +15,37 @@
     <h1>Nombre ya tenemos su presupuesto!</h1>
   </header>
     <content>
-    <div>
-      <ul>
-        <!-- lista de partes -->
-      </ul>
+    <div class="fila">
+      <div class="col">
+          <ul id="partes">
+            <!-- lista de partes -->
+            <li> cpu </li>
+            <li> gpu </li>
+            <li> ram </li>
+            <li> ssd </li>
+          </ul>
+      </div>
+      <div class="col">
+          <canvas id="grafico">
+            Su explorador no soporta canvas
+            <!-- lugar para el grafico -->
+          </canvas>
+      </div>
     </div>
-    <div>
-      <canvas>
-        Su explorador no soporta canvas
-        <!-- lugar para el grafico -->
-      </canvas>
-    </div>
-    <div >
+    <div class="fila">
       <!-- cambiador de partes -->
-      <ul class="horizontal-list">
-        <li> cpu 1 </li>
-        <li> cpu 2 </li>
-      </ul>
+      <div class="col">
+        <ul class="horizontal-list">
+          <li> cpu 1 </li>
+          <li> cpu 2 </li>
+          <li> cpu 3 </li>
+          <li> cpu 4 </li>
+        </ul>
+      </div>
     </div>
   </content>
+  <footer>
+    Francisco Maggi, Lucas Pascazzi
+  </footer>
 </body>
 </html>
