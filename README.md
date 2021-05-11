@@ -12,5 +12,7 @@
 | Francisco Maggi | 1810638@ucc.edu.ar |
 | Lucas Pascazzi | 2008216@ucc.edu.ar |
 
+Enlace al proyecto: [Part Picker](https://ucc-labcompu2.github.io/proyecto2021-maggi-pascazzi/)
+
 :point_up:
 
