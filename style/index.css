@@ -3,3 +3,14 @@ p {
   align-items: center;
   text-align: center;
 }
+
+input {
+  border: none;
+  border-bottom: 1px solid #767676;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #008CBA;
+}
