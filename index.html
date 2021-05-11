@@ -10,27 +10,29 @@
 </head>
 <body>
   <header>
-    <img src="img/cpu.png" alt="Imagen no encontrada" width="32" height="32"></img>
-    <h1>PC part picker</h1>
+      <img src="img/cpu.png" alt="Imagen no encontrada" width="32" height="32"></img>
+      <h1>PC part picker</h1>
   </header>
-  <content>
-    <div>
-      <form class="" action="presupuesto.html" method="post">
-        <label for="usuario">Nombre: </label>
-        <input type="text" name="usuario" placeholder="ej: fran" id="usuario">
-        <label for="pres">Presupesto: </label>
-        <input type="number" name="presupuesto" placeholder="ej: 1000" id="pres">
-        <select name="uso" id="uso">
-          <option value="game">Gaming</option>
-          <option value="diseno">Diseño</option>
-          <option value="edicion">Edicion de fotos o videos</option>
-          <option value="programming">Programacion</option>
-          <option value="ligero">Navegacion web, excel, etc.</option>
-        </select>
-        <input type="submit" name="done" value="Listo!">
-      </form>
+  <section>
+    <div class="fila">
+      <div class="col">
+        <form class="" action="presupuesto.html" method="post" id="main">
+          <p><label for="usuario">Nombre: </label>
+          <input type="text" name="usuario" placeholder="ej: fran" id="usuario"></p>
+          <p><label for="pres">Presupesto: </label>
+          <input type="number" name="presupuesto" placeholder="ej: 1000" id="pres"></p>
+          <p><select name="uso" id="uso">
+            <option value="game">Gaming</option>
+            <option value="diseno">Diseño</option>
+            <option value="edicion">Edicion de fotos o videos</option>
+            <option value="programming">Programacion</option>
+            <option value="ligero">Navegacion web, excel, etc.</option>
+          </select></p>
+          <p><input type="submit" name="done" value="Listo!" class="btn"></p>
+        </form>
+      </div>
     </div>
-  </content>
+  </section>
   <footer>
     Francisco Maggi, Lucas Pascazzi
   </footer>

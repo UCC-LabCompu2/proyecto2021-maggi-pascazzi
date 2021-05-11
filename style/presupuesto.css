@@ -1,25 +1,3 @@
-.fila {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: space-between;
-}
-
-.fila::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.col {
-  float: left;
-  width:auto;
-  height: inherit;
-  margin: 10px;
-  border: 5px;
-  padding: 5px;
-}
-
 #partes {
   width: fit-content;
   height: inherit;
@@ -48,22 +26,17 @@
   border-radius: 4px;
 }
 
+#cambiador {
+  left: 8000;
+}
+
 .horizontal-list {
   width: auto;
-  margin: 10px 100px 10px 100px;
+  margin: 10px 10px 10px 10px;
   border: 5px;
   padding: 5px;
 }
 
 .horizontal-list li {
   display: inline-block;
-  padding: 16px 30px 16px 30px;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 4px;
-}
-
-li:hover {
-  background-color: rgba(160, 200, 244, 0.7);
-  border-radius: 4px;
 }
