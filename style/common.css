@@ -19,9 +19,18 @@ h1 {
 }
 
 img {
-  float: left;
   margin: 5px;
   padding: 5px;
+}
+
+.adorno {
+  position: relative;
+  left: 45%;
+  top: 25%;
+}
+
+#logo {
+  float: left;
 }
 
 div {

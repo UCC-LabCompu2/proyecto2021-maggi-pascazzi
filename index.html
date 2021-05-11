@@ -8,10 +8,11 @@
   <title>PC part picker</title>
   <link rel='stylesheet' href="style/common.css" type="text/css">
   <link rel='stylesheet' href="style/index.css" type="text/css">
+  <script src="script/index.js" type="text/javascript"></script>
 </head>
 <body>
   <header>
-      <img src="img/cpu.png" alt="Imagen no encontrada" width="32" height="32"></img>
+      <img src="img/cpu.png" alt="Imagen no encontrada" width="32" height="32" id="logo"></img>
       <h1>PC part picker</h1>
   </header>
   <section>
@@ -36,10 +37,31 @@
     </div>
     <div class="fila">
       <div class="col">
-        <div class="text">
-          <p>Aca va explicado que componente se prioriza en base al uso que se la va a dar a la maquina</p>
-          <p>Ej: En una maquina dedicada a juegos es necesario una buena placa de video <br>
+        <div class="text" id="exp-game">
+          <p>En una maquina dedicada a juegos es necesario una buena placa de video
             para poder correr los juegos a una cantidad de FPS suficiente.</p>
+            <img class="adorno" src="img/game.png" alt="Imagen no encontrada" width="64" height="64"></img>
+        </div>
+        <div class="text" id="exp-diseno" hidden>
+          <p>En una maquina dedicada al diseño es necesario una buena placa de video
+            para poder visualizar los modelos que se estan diseñando de manera rapida y eficiente.</p>
+            <img class="adorno" src="img/3d.png" alt="Imagen no encontrada" width="64" height="64"></img>
+        </div>
+        <div class="text" id="exp-edicion" hidden>
+          <p>En una maquina dedicada a la edicion de fotos o videos es necesario una buena placa de video
+            para visualizar los proyectos en tiempo real.</p>
+            <img class="adorno" src="img/video.png" alt="Imagen no encontrada" width="64" height="64"></img>
+        </div>
+        <div class="text" id="exp-programming" hidden>
+          <p>En una maquina dedicada a programacion es necesario un buen procesador para compilar
+            los programas rapidos y suficiente ram para poder utilizar la IDE con todas sus funciones.</p>
+            <img class="adorno" src="img/prog.png" alt="Imagen no encontrada" width="64" height="64"></img>
+        </div>
+        <div class="text" id="exp-ligero" hidden>
+          <p>En una maquina dedicada a la navegacion web y edicion de documentos es importante
+            una buena ssd para minimizar los tiempos de carga. Sin embargo, estas actividades no requieren de
+            mucha potenica de computacion.</p>
+            <img class="adorno" src="img/web.png" alt="Imagen no encontrada" width="64" height="64"></img>
         </div>
       </div>
     </div>

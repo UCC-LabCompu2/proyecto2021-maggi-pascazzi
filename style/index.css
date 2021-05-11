@@ -18,7 +18,7 @@ input:focus {
 .text {
   width: 700px;
   height: 200px;
-  text-align: left;
-  align-items: flex-start;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
