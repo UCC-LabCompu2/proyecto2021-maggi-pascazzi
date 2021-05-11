@@ -8,13 +8,13 @@ Estructura de Proyecto Lab de Compu II - 2021
 - [x] Emplear al menos 3 etiquetas semánticas
 - [x] Emplear ```<header></header>```. En el contenido de la cabecera debe haber un título ```<h1></h1>```, puede tener color de fondo, algún logotipo, etc.
 - [x] Modificar el Readme.MD y colocar información del proyecto/página (mínimamente: título del proyecto, autores, link de gh-pages, contenido de la página,  listado de tecnologías usadas, etc)
-- [ ] Publicar la Web empleando GitHubPages
+- [x] Publicar la Web empleando GitHubPages
 - [x] La estructura de la página debe estar definida con ```<div></div>```
 - [x] Debe contener al menos 3 elementos de tipo ```<input>``` o ```<select>``` ó ```<button>``` que le permitan al usuario ingresar valores para poder realizar un cálculo de un ejercicio.
 - [x] Debe haber por lo menos una etiqueta ```<img>``` en la página.
 - [ ] La estructura del proyecto debe ser adecuada (crear una carpeta para las imágenes, otra para los sketch/mockups). Es importante que contenga SKETCH y MOCKUP
 - [x] Debe contener un ```<canvas>```, para que posteriormente (en la 2da etapa) se grafique alguna imagen representativa del ejercicio. (el desarrollo del gráfico se realizará cuando se vea la unidad de “Orientación a Eventos”)
-- [ ] Identar correctamente el código (en Webstorm Ctrl+Alt+L)
+- [x] Identar correctamente el código (en Webstorm Ctrl+Alt+L)
 - [x] No espaciar con excesivos ```<br>```. Utilizar márgenes, paddings, etc.
 - [x] No utilizar etiquetas deprecadas.
 - [x] El estilo de los elementos debe establecerse en un archivo CSS (prohibido poner el atributo style a los elementos o emplear estilos incrustados).
