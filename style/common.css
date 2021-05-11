@@ -1,5 +1,6 @@
 body {
   font-family: Helvetica;
+  background-color: #e7e7e7;
 }
 
 header {
@@ -54,11 +55,13 @@ footer {
 
 .col {
   float: left;
+  background-color: #ffffff;
   width:auto;
   height: inherit;
   margin: 10px;
-  border: 5px;
-  padding: 5px;
+  padding: 10px;
+  box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
   justify-content: center;
   align-items: center;
 }
@@ -66,7 +69,7 @@ footer {
 .btn {
   background-color: #008CBA;
   border: none;
-  border-radius: 25px;
+  border-radius: 4px;
   color: white;
   padding: 10px 20px;
   text-align: center;
