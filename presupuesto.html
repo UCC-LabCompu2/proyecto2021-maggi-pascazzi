@@ -6,14 +6,14 @@
   <meta name="description" content="Armador de PCs en base a necesidad del usuario">
   <meta name="keywords" content="PC, computacion">
   <title>PC part picker</title>
-  <link rel='stylesheet' href="style/presupuesto.css" type="text/css">
   <link rel='stylesheet' href="style/common.css" type="text/css">
+  <link rel='stylesheet' href="style/presupuesto.css" type="text/css">
 </head>
 
 <body>
   <header>
     <img src="img/cpu.png" alt="Imagen no encontrada" width="32" height="32" id="logo"></img>
-    <h1>Nombre ya tenemos su presupuesto!</h1>
+    <h1>Nombre ya tenemos tu PC!</h1>
   </header>
   <section>
     <div class="fila">
@@ -23,7 +23,7 @@
           <li> cpu </li>
           <li> gpu </li>
           <li> ram </li>
-          <li> ssd </li>
+          <li class="last"> ssd </li>
         </ul>
       </div>
       <div class="col">
@@ -34,14 +34,99 @@
       </div>
     </div>
     <div class="fila">
-        <!-- cambiador de partes -->
       <div class="col">
-        <ul class="horizontal-list" id="cambiador">
-          <li> <input type="button" class="btn" value="cpiu 1"> </li>
-          <li> <input type="button" class="btn" value="cpu 2"> </li>
-          <li> <input type="button" class="btn" value="cpu 3"> </li>
-          <li> <input type="button" class="btn" value="cpu 4"> </li>
-        </ul>
+        <div class="options-holder" id="cpu-options">
+          <div class="card" id="cpu-1">
+            <div class="card-title">
+              <p>this cpu is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p>Precio: $$$</p>
+              <p>Rendimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir">
+            </div>
+          </div>
+          <div class="card" id="cpu-2">
+            <div class="card-title">
+              <p>this cpu is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p>Precio: $$$</p>
+              <p>Rendimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir">
+            </div>
+          </div>
+          <div class="card" id="cpu-3">
+            <div class="card-title">
+              <p>this cpu is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p>Precio: $$$</p>
+              <p>Rendimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir">
+            </div>
+          </div>
+          <div class="card" id="cpu-4">
+            <div class="card-title">
+              <p>this cpu is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p>Precio: $$$</p>
+              <p>Rendimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir">
+            </div>
+          </div>
+        </div>
+        <div id="gpu-options" hidden>
+          <div class="card" id="gpu-1">
+            <div class="card-title">
+              <p>this gpu is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p>Precio: $$$</p>
+              <p>Rendimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir">
+            </div>
+          </div>
+          <div class="card" id="gpu-2">
+            <div class="card-title">
+              <p>this gpu is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p>Precio: $$$</p>
+              <p>Rendimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir">
+            </div>
+          </div>
+          <div class="card" id="gpu-3">
+            <div class="card-title">
+              <p>this gpu is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p>Precio: $$$</p>
+              <p>Rendimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir">
+            </div>
+          </div>
+          <div class="card" id="gpu-4">
+            <div class="card-title">
+              <p>this gpu is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p>Precio: $$$</p>
+              <p>Rendimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

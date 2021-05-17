@@ -1,17 +1,15 @@
 var tipoDeUso;
 var curExplicacion;
-var value = 'exp-game';
 
 window.onload = function () {
   tipoDeUso = document.getElementById('uso');
   tipoDeUso.onchange = change;
 
-  curExplicacion = document.getElementById('exp-game');
+  curExplicacion = document.getElementById('exp-' + tipoDeUso.value);
 };
 
 function change() {
   curExplicacion.hidden = true;
-  value = tipoDeUso.value;
-  document.getElementById('exp-' + value).hidden = false;
-  curExplicacion = document.getElementById('exp-' + value);
+  curExplicacion = document.getElementById('exp-' + this.value);
+  curExplicacion.hidden = false;
 }

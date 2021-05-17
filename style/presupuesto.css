@@ -1,15 +1,20 @@
 #partes {
   width: fit-content;
   height: inherit;
-  margin: 10px;
+  margin: 0;
   border: 0;
-  padding: 5px;
+  padding: 0;
   list-style: none;
 }
 
 #partes li {
   display: list-item;
   padding: 20px 20px 20px 20px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+#partes li.last {
+  border-bottom: none;
 }
 
 #grafico {
@@ -20,13 +25,40 @@
   height: 300px;
 }
 
-.horizontal-list {
+.options-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: auto;
-  margin: 10px 10px 10px 10px;
+  margin: 0px;
   border: 5px;
   padding: 5px;
 }
 
-.horizontal-list li {
-  display: inline-block;
+.card {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card > * {
+  top: -15px;
+  position: relative;
+  margin: 0px;
+  padding : 0px;
+  height: inherit;
+  transition: transform 700ms ease;
+  transform: translateY(0%);
+}
+
+.card:hover > * {
+  transform: translateY(-115%);
+}
+
+.more {
+  font-style: italic;
+  color: #2196f3;
+  position: relative;
+  top: 50px;
 }

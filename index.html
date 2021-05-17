@@ -20,11 +20,11 @@
       <div class="col">
         <form class="" action="presupuesto.html" method="get" id="main">
           <p><label for="usuario">Nombre </label>
-          <input type="text" name="usuario" placeholder="ej: fran" id="usuario"></p>
+          <input type="text" name="usuario" placeholder="ej: fran" id="usuario" required></p>
           <p><label for="pres">Presupesto </label>
-          <input type="number" name="presupuesto" placeholder="ej: 1000" id="pres"></p>
+          <input type="number" name="presupuesto" placeholder="ej: 1000" id="pres" required></p>
           <p><label for="uso">Uso </label>
-          <select name="uso" id="uso">
+          <select name="uso" id="uso" onchange="change();" required>
             <option value="game">Gaming</option>
             <option value="diseno">Diseño</option>
             <option value="edicion">Edicion de fotos o videos</option>
