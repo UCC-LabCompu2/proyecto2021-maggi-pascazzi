@@ -29,10 +29,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto;
+  width: 670px;
   margin: 0px;
   border: 5px;
   padding: 5px;
+}
+
+.hidden {
+  display: none;
 }
 
 .card {
