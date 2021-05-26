@@ -23,12 +23,6 @@ img {
   padding: 5px;
 }
 
-.adorno {
-  position: relative;
-  left: 45%;
-  top: 25%;
-}
-
 #logo {
   float: left;
 }
@@ -78,26 +72,19 @@ footer {
   align-items: center;
 }
 
+.btn-sm,
 .btn {
   background-color: #2196f3;
   border: none;
   border-radius: 8px;
   color: white;
   padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  font-weight: bold;
 }
 
 .btn-sm {
-  background-color: #2196f3;
-  border: none;
-  border-radius: 8px;
-  color: white;
   padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  font-weight: normal;
 }
 
 .btn:active,

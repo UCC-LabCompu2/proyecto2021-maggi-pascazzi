@@ -4,14 +4,14 @@ p {
   text-align: center;
 }
 
-input {
+input:not([type="submit"], [type="button"]) {
   border: none;
   border-bottom: 1px solid #767676;
   color: #767676;
   margin: 5px;
 }
 
-input:focus {
+input:focus:not([type="submit"], [type="button"]) {
   outline: none;
   border-bottom: 1px solid #2196f3;
   color: black;
@@ -33,9 +33,16 @@ select:focus {
 }
 
 .text {
+  position: relative;
   width: 700px;
   height: 200px;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.adorno {
+  position: absolute;
+  left: 87%;
+  top: 63%;
 }
