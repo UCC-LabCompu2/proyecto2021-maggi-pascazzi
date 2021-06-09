@@ -82,23 +82,45 @@ function ubicarComponentes(presupuesto, uso) {
     let p_gpu = porcentajes[1];
     let p_ram = porcentajes[2];
     let p_ssd = porcentajes[3];
-    let resultados = [];
+    let resultados = [cpus.tier3, gpus.tier3, rams["64gb"], ssds["2tb"]];
 
     for (const key of Object.keys(cpus)) {
         if (p_cpu * presupuesto <= key) {
-            resultados.push(key);
+            resultados[0] = key;
 
             var cpu = Object.keys(cpus[key])[0]
             document.getElementById("cpu").innerHTML = cpu;
+            break;
         }
     }
 
     for (const key of Object.keys(gpus)) {
         if (p_gpu * presupuesto <= key) {
-            resultados.push(key);
+            resultados[1] = key;
 
             var gpu = Object.keys(gpus.key)[0]
             document.getElementById("gpu").innerHTML = gpu;
+            break;
+        }
+    }
+
+    for (const key of Object.keys(rams)) {
+        if (p_ram * presupuesto <= rams[key].precio) {
+            resultados[2] = key;
+
+            var ram = Object.keys(rams[key])
+            document.getElementById("ram").innerHTML = ram;
+            break;
+        }
+    }
+
+    for (const key of Object.keys(ssds)) {
+        if (p_ssd * presupuesto <= ssds[key].precio) {
+            resultados[3] = key;
+
+            var ssd = Object.keys(ssds[key])
+            document.getElementById("ssd").innerHTML = ssd;
+            break;
         }
     }
 }
