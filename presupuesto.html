@@ -8,22 +8,23 @@
   <title>PC part picker</title>
   <link rel='stylesheet' href="style/common.css" type="text/css">
   <link rel='stylesheet' href="style/presupuesto.css" type="text/css">
+  <script src='script/presupuesto.js' type='text/javascript'></script>
 </head>
 
 <body>
   <header>
     <img src="img/cpu.png" alt="Imagen no encontrada" width="32" height="32" id="logo">
-    <h1>Nombre ya tenemos tu PC!</h1>
+    <h1 id="header">Nombre ya tenemos tu PC!</h1>
   </header>
   <section>
     <div class="fila">
       <div class="col">
         <ul id="partes">
             <!-- lista de partes -->
-          <li> cpu </li>
-          <li> gpu </li>
-          <li> ram </li>
-          <li class="last"> ssd </li>
+          <li id="cpu" onclick="mostrar(this.id);"> cpu </li>
+          <li id="gpu" onclick="mostrar(this.id);"> gpu </li>
+          <li id="ram" onclick="mostrar(this.id);"> ram </li>
+          <li class="last" id="ssd" onclick="mostrar(this.id);"> ssd </li>
         </ul>
       </div>
       <div class="col">
@@ -38,92 +39,184 @@
         <div class="options-holder" id="cpu-options">
           <div class="card" id="cpu-1">
             <div class="card-title">
-              <p>this cpu is awesome</p>
+              <p id="title">this cpu is awesome</p>
               <p class="more">Conocelo</p>
             </div>
             <div class="card-content">
-              <p>Precio: $$$</p>
-              <p>Rendimiento: ###</p>
-              <input type="button" class="btn-sm" value="Elegir">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('cpu', 1);">
             </div>
           </div>
           <div class="card" id="cpu-2">
             <div class="card-title">
-              <p>this cpu is awesome</p>
+              <p id="title">this cpu is awesome</p>
               <p class="more">Conocelo</p>
             </div>
             <div class="card-content">
-              <p>Precio: $$$</p>
-              <p>Rendimiento: ###</p>
-              <input type="button" class="btn-sm" value="Elegir">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('cpu', 2);">
             </div>
           </div>
           <div class="card" id="cpu-3">
             <div class="card-title">
-              <p>this cpu is awesome</p>
+              <p id="title">this cpu is awesome</p>
               <p class="more">Conocelo</p>
             </div>
             <div class="card-content">
-              <p>Precio: $$$</p>
-              <p>Rendimiento: ###</p>
-              <input type="button" class="btn-sm" value="Elegir">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('cpu', 3);">
             </div>
           </div>
           <div class="card last" id="cpu-4">
             <div class="card-title">
-              <p>this cpu is awesome</p>
+              <p id="title">this cpu is awesome</p>
               <p class="more">Conocelo</p>
             </div>
             <div class="card-content">
-              <p>Precio: $$$</p>
-              <p>Rendimiento: ###</p>
-              <input type="button" class="btn-sm" value="Elegir">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('cpu', 4);">
             </div>
           </div>
         </div>
         <div class="options-holder hidden" id="gpu-options">
           <div class="card" id="gpu-1">
             <div class="card-title">
-              <p>this gpu is awesome</p>
+              <p id="title">this gpu is awesome</p>
               <p class="more">Conocelo</p>
             </div>
             <div class="card-content">
-              <p>Precio: $$$</p>
-              <p>Rendimiento: ###</p>
-              <input type="button" class="btn-sm" value="Elegir">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('gpu', 1);">
             </div>
           </div>
           <div class="card" id="gpu-2">
             <div class="card-title">
-              <p>this gpu is awesome</p>
+              <p id="title">this gpu is awesome</p>
               <p class="more">Conocelo</p>
             </div>
             <div class="card-content">
-              <p>Precio: $$$</p>
-              <p>Rendimiento: ###</p>
-              <input type="button" class="btn-sm" value="Elegir">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('gpu', 2);">
             </div>
           </div>
           <div class="card" id="gpu-3">
             <div class="card-title">
-              <p>this gpu is awesome</p>
+              <p id="title">this gpu is awesome</p>
               <p class="more">Conocelo</p>
             </div>
             <div class="card-content">
-              <p>Precio: $$$</p>
-              <p>Rendimiento: ###</p>
-              <input type="button" class="btn-sm" value="Elegir">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('gpu', 3);">
             </div>
           </div>
           <div class="card last" id="gpu-4">
             <div class="card-title">
-              <p>this gpu is awesome</p>
+              <p id="title">this gpu is awesome</p>
               <p class="more">Conocelo</p>
             </div>
             <div class="card-content">
-              <p>Precio: $$$</p>
-              <p>Rendimiento: ###</p>
-              <input type="button" class="btn-sm" value="Elegir">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('gpu', 4);">
+            </div>
+          </div>
+        </div>
+        <div class="options-holder hidden" id="ram-options">
+          <div class="card" id="ram-1">
+            <div class="card-title">
+              <p id="title">this ram is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('ram', 1);">
+            </div>
+          </div>
+          <div class="card" id="ram-2">
+            <div class="card-title">
+              <p id="title">this ram is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('ram', 2);">
+            </div>
+          </div>
+          <div class="card" id="ram-3">
+            <div class="card-title">
+              <p id="title">this ram is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('ram', 3);">
+            </div>
+          </div>
+          <div class="card last" id="ram-4">
+            <div class="card-title">
+              <p id="title">this ram is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('ram', 4);">
+            </div>
+          </div>
+        </div>
+        <div class="options-holder hidden" id="ssd-options">
+          <div class="card" id="ssd-1">
+            <div class="card-title">
+              <p id="title">this ssd is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('ssd', 1);">
+            </div>
+          </div>
+          <div class="card" id="ssd-2">
+            <div class="card-title">
+              <p id="title">this ssd is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('ssd', 2);">
+            </div>
+          </div>
+          <div class="card" id="ssd-3">
+            <div class="card-title">
+              <p id="title">this ssd is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('ssd', 3);">
+            </div>
+          </div>
+          <div class="card last" id="ssd-4">
+            <div class="card-title">
+              <p id="title">this ssd is awesome</p>
+              <p class="more">Conocelo</p>
+            </div>
+            <div class="card-content">
+              <p id="precio">Precio: $$$</p>
+              <p id="rendimiento">Preciodimiento: ###</p>
+              <input type="button" class="btn-sm" value="Elegir" onclick="cambiar('ssd', 4);">
             </div>
           </div>
         </div>
