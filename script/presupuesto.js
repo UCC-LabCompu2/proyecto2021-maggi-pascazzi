@@ -5,7 +5,6 @@ var usos = {
     "programming": [0.4, 0.1, 0.25, 0.25],
     "ligero": [0.4, 0.1, 0.1, 0.4]
 }
-
 var cpus = {
     tier1: {
         "Intel i3": {precio: 1, rendimiento: 1},
@@ -82,7 +81,7 @@ function ubicarComponentes(presupuesto, uso) {
     let p_gpu = porcentajes[1];
     let p_ram = porcentajes[2];
     let p_ssd = porcentajes[3];
-    let resultados = [cpus.tier3, gpus.tier3, rams["64gb"], ssds["2tb"]];
+    let resultados = [tier3, tier3, "64gb", "2tb"];
 
     for (const key of Object.keys(cpus)) {
         if (p_cpu * presupuesto <= key) {
