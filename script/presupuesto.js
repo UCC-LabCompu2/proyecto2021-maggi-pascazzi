@@ -54,11 +54,13 @@ var ssds = {
     "2tb": {}
 }
 
-/*
-*
-* @method window.onload
+window.onload = loadPresupuesto;
+
+/**
+* Carga la view con la informacion necesaria
+* @method loadPresupuesto
 */
-window.onload = function () {
+function loadPresupuesto() {
     let params = new URLSearchParams(location.search);
     let usuario = params.get("usuario");
     let presupuesto = params.get("presupuesto");
@@ -69,8 +71,8 @@ window.onload = function () {
     ubicarComponentes(presupuesto, uso);
 }
 
-/*
-*
+/**
+* Ubica los componentes en la view dependiendo del presupuesto y uso del usuario
 * @method ubicarComponentes
 * @param {number} presupuesto - presupuesto del usuario
 * @param {string} uso - uso que el usuario le va a dar a la PC
@@ -124,12 +126,23 @@ function ubicarComponentes(presupuesto, uso) {
     }
 }
 
+/**
+* Cambia el componente actual por el seleccionado y calcula el nuevo grafico
+* @method cambiar
+* @param {string} componente - componente de la pc (cpu, gpu, ram o ssd)
+* @param {string} indice - indice del boton clickeado
+*/
 function cambiar(componente, indice) {
     document.getElementById(componente).innerHTML = indice;
     var seleccionado = document.getElementById(componente + "-" + indice.toString());
 }
 
 var currMostrado = "cpu-options";
+/**
+* Muestra las opciones para el componente clickeado (cpu, gpu, ram o ssd)
+* @method mostrar
+* @param {string} id - id del componente a mostrar
+*/
 function mostrar(id) {
     document.getElementById(currMostrado).classList.add("hidden");
     document.getElementById(id + "-options").classList.remove("hidden");
