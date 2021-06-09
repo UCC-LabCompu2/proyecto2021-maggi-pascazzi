@@ -94,7 +94,7 @@ function ubicarComponentes(presupuesto, uso) {
     }
 
     for (const key of Object.keys(gpus)) {
-        if (p_cpu * presupuesto <= key) {
+        if (p_gpu * presupuesto <= key) {
             resultados.push(key);
 
             var gpu = Object.keys(gpus.key)[0]
