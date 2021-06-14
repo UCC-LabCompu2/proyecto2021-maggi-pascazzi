@@ -75,7 +75,12 @@ function loadPresupuesto() {
     ubicarOpciones();
 }
 
-let resultados = ["tier3", "tier3", "64gb", "2tb"];
+let resultados = {
+    cpu: "tier3",
+    gpu: "tier3",
+    ram: "64gb",
+    ssd: "2tb"
+}
 /**
 * Ubica los componentes en la view dependiendo del presupuesto y uso del usuario
 * @method ubicarComponentes
@@ -91,7 +96,7 @@ function ubicarComponentes(presupuesto, uso) {
 
     for (const key of Object.keys(componentes.cpus)) {
         if (p_cpu * presupuesto <= key) {
-            resultados[0] = key;
+            resultados.cpu = key;
 
             var cpu = Object.keys(componentes.cpus[key])[0];
             document.getElementById("cpu").innerHTML = cpu;
@@ -101,7 +106,7 @@ function ubicarComponentes(presupuesto, uso) {
 
     for (const key of Object.keys(componentes.gpus)) {
         if (p_gpu * presupuesto <= key) {
-            resultados[1] = key;
+            resultados.gpu = key;
 
             var gpu = Object.keys(componentes.gpus[key])[0];
             document.getElementById("gpu").innerHTML = gpu;
@@ -111,7 +116,7 @@ function ubicarComponentes(presupuesto, uso) {
 
     for (const key of Object.keys(componentes.rams)) {
         if (p_ram * presupuesto <= componentes.rams[key].precio) {
-            resultados[2] = key;
+            resultados.ram = key;
 
             document.getElementById("ram").innerHTML = key;
             break;
@@ -120,7 +125,7 @@ function ubicarComponentes(presupuesto, uso) {
 
     for (const key of Object.keys(componentes.ssds)) {
         if (p_ssd * presupuesto <= componentes.ssds[key].precio) {
-            resultados[3] = key;
+            resultados.ssd = key;
 
             document.getElementById("ssd").innerHTML = key;
             break;
@@ -137,7 +142,7 @@ function ubicarOpciones() {
 
     i = 1;
     for (const key of Object.keys(componentes.rams)) {
-        if (key !== resultados[2]) {
+        if (key !== resultados.ram) {
             ubicar("ram", key, i);
             i++;
         }
@@ -145,7 +150,7 @@ function ubicarOpciones() {
 
     i = 1;
     for (const key of Object.keys(componentes.ssds)) {
-        if (key !== resultados[3]) {
+        if (key !== resultados.ssd) {
             ubicar("ssd", key, i);
             i++;
         }
@@ -160,7 +165,6 @@ function ubicarOpciones() {
  */
 function ubicar(componente, key, indice) {
     var seleccionado = document.getElementById(componente + "-" + indice.toString());
-    console.log(componente + "-" + indice.toString(), seleccionado);
 
     var title = seleccionado.children[0];
     var opcion = title.children[0];
@@ -191,7 +195,10 @@ function cambiar(componente, indice) {
     var key = curr.innerHTML;
     curr.innerHTML = opcion.innerHTML;
 
+    resultados[componente] = curr.innerHTML;
+
     ubicar(componente, key, indice);
+    dibujar();
 }
 
 var currMostrado = "cpu-options";
@@ -204,4 +211,12 @@ function mostrar(id) {
     document.getElementById(currMostrado).classList.add("hidden");
     document.getElementById(id + "-options").classList.remove("hidden");
     currMostrado = id + "-options";
+}
+
+/**
+ * Dibuja el grafico en el canvas
+ * @method dibujar
+ */
+function dibujar() {
+
 }
