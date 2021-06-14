@@ -8,36 +8,15 @@ var usos = {
 
 const componentes = {
     cpus: {
-        tier1: {
-            "Intel i3": {precio: 1, rendimiento: 1},
-            "Amd Athlon": {},
-            "Intel Pentium": {},
-            "Amd Ryzen3": {}
-        },
-        tier2: {
-            "Intel i5": {},
-            "Amd Ryzen5":{},
-            "Intel i7": {},
-            "Amd Ryzen7": {}
-        },
-        tier3: {
-            "Intel i9": {},
-            "Intel Xeon": {},
-            "Amd Ryzen9": {},
-            "Amd Threadripper": {}
-        }
+        "Intel i3": {precio: 1, rendimiento: 1},
+        "Intel i5": {},
+        "Intel i7": {},
+        "Intel i9": {},
+        "Amd Threadripper": {}
     },
 
-    gpus: {
-        tier1: {
-    
-        },
-        tier2: {
-    
-        },
-        tier3: {
-    
-        }
+    gpus: { // que sean 5 tambien
+        
     },
 
     rams: {
@@ -76,8 +55,8 @@ function loadPresupuesto() {
 }
 
 let resultados = {
-    cpu: "tier3",
-    gpu: "tier3",
+    cpu: "Amd Threadripper",
+    gpu: "",
     ram: "64gb",
     ssd: "2tb"
 }
@@ -95,21 +74,19 @@ function ubicarComponentes(presupuesto, uso) {
     let p_ssd = porcentajes[3];
 
     for (const key of Object.keys(componentes.cpus)) {
-        if (p_cpu * presupuesto <= key) {
+        if (p_cpu * presupuesto <= componentes.cpus[key].precio) {
             resultados.cpu = key;
 
-            var cpu = Object.keys(componentes.cpus[key])[0];
-            document.getElementById("cpu").innerHTML = cpu;
+            document.getElementById("cpu").innerHTML = key;
             break;
         }
     }
 
     for (const key of Object.keys(componentes.gpus)) {
-        if (p_gpu * presupuesto <= key) {
+        if (p_gpu * presupuesto <= componentes.gpus[key].precio) {
             resultados.gpu = key;
 
-            var gpu = Object.keys(componentes.gpus[key])[0];
-            document.getElementById("gpu").innerHTML = gpu;
+            document.getElementById("gpu").innerHTML = key;
             break;
         }
     }
@@ -138,7 +115,21 @@ function ubicarComponentes(presupuesto, uso) {
  * @method ubicarOpciones
  */
 function ubicarOpciones() {
-    var i;
+    var i = 1;
+    for (const key of Object.keys(componentes.cpus)) {
+        if (key !== resultados.cpu) {
+            ubicar("cpu", key, i);
+            i++;
+        }
+    }
+
+    i = 1;
+    for (const key of Object.keys(componentes.gpus)) {
+        if (key !== resultados.gpu) {
+            ubicar("gpu", key, i);
+            i++;
+        }
+    }
 
     i = 1;
     for (const key of Object.keys(componentes.rams)) {
@@ -194,6 +185,8 @@ function cambiar(componente, indice) {
 
     var key = curr.innerHTML;
     curr.innerHTML = opcion.innerHTML;
+
+    resultados[componente] = curr.innerHTML;
 
     ubicar(componente, key, indice);
     dibujar();
