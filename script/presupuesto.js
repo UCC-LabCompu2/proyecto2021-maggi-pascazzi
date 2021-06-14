@@ -43,17 +43,17 @@ const componentes = {
     rams: {
         "4gb": {precio: 2000, rendimiento: "bajo"},
         "8gb": {precio: 7000, rendimiento: "medio"},
-        "16gb": {precio: 14000, rendimiento: "medio-alto"},
+        "16gb": {precio: 14000, rendimiento: "med+"},
         "32gb": {precio: 30000, rendimiento: "alto"},
-        "64gb": {precio: 67000, rendimiento: "extremo"}
+        "64gb": {precio: 67000, rendimiento: "max"}
     },
 
     ssds: {
         "128gb": {precio: 4300, rendimiento: "bajo"},
         "256gb": {precio: 6400, rendimiento: "medio"},
-        "512gb": {precio: 10000, rendimiento: "medio-alto"},
+        "512gb": {precio: 10000, rendimiento: "med+"},
         "1tb": {precio: 20000, rendimiento: "alto"},
-        "2tb": {precio: 67000, rendimiento: "extremo"}
+        "2tb": {precio: 67000, rendimiento: "max"}
     }        
 }
 
@@ -128,8 +128,52 @@ function ubicarComponentes(presupuesto, uso) {
     }
 }
 
+/**
+ * Ubica las opciones en el options-holder
+ * @method ubicarOpciones
+ */
 function ubicarOpciones() {
+    var i;
 
+    i = 1;
+    for (const key of Object.keys(componentes.rams)) {
+        if (key !== resultados[2]) {
+            ubicar("ram", key, i);
+            i++;
+        }
+    }
+
+    i = 1;
+    for (const key of Object.keys(componentes.ssds)) {
+        if (key !== resultados[3]) {
+            ubicar("ssd", key, i);
+            i++;
+        }
+    }
+}
+
+/**
+ * Ubica el componente en su celda
+ * @param {string} componente Tipo de componente (cpu, gpu, ram o ssd)
+ * @param {string} key Llave del componente a ubicar
+ * @param {number} indice Indice de la celda donde ubicarla
+ */
+function ubicar(componente, key, indice) {
+    var seleccionado = document.getElementById(componente + "-" + indice.toString());
+    console.log(componente + "-" + indice.toString(), seleccionado);
+
+    var title = seleccionado.children[0];
+    var opcion = title.children[0];
+
+    var more = seleccionado.children[1];
+    var precio = more.children[0];
+    var rendimiento = more.children[1];
+
+    var object = componentes[componente + "s"][key];
+
+    opcion.innerHTML = key;
+    precio.innerHTML = "Precio: " + object.precio;
+    rendimiento.innerHTML = "Rendmiento: " + object.rendimiento;
 }
 
 /**
@@ -141,22 +185,13 @@ function ubicarOpciones() {
 function cambiar(componente, indice) {
     var curr = document.getElementById(componente);
     var seleccionado = document.getElementById(componente + "-" + indice.toString());
-
     var title = seleccionado.children[0];
     var opcion = title.children[0];
 
-    var more = seleccionado.children[1];
-    var precio = more.children[0];
-    var rendimiento = more.children[1];
-
     var key = curr.innerHTML;
-    var object = componentes[componente + "s"][key];
-
     curr.innerHTML = opcion.innerHTML;
-    
-    opcion.innerHTML = key;
-    precio.innerHTML = "Precio: " + object.precio;
-    rendimiento.innerHTML = "Rendmiento: " + object.rendimiento;
+
+    ubicar(componente, key, indice);
 }
 
 var currMostrado = "cpu-options";
