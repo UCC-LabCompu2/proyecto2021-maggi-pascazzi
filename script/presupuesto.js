@@ -5,57 +5,60 @@ var usos = {
     "programming": [0.4, 0.1, 0.25, 0.25],
     "ligero": [0.4, 0.1, 0.1, 0.4]
 }
-var cpus = {
-    tier1: {
-        "Intel i3": {precio: 1, rendimiento: 1},
-        "Amd Athlon": {},
-        "Intel Pentium": {},
-        "Amd Ryzen3": {}
+
+const componentes = {
+    cpus: {
+        tier1: {
+            "Intel i3": {precio: 1, rendimiento: 1},
+            "Amd Athlon": {},
+            "Intel Pentium": {},
+            "Amd Ryzen3": {}
+        },
+        tier2: {
+            "Intel i5": {},
+            "Amd Ryzen5":{},
+            "Intel i7": {},
+            "Amd Ryzen7": {}
+        },
+        tier3: {
+            "Intel i9": {},
+            "Intel Xeon": {},
+            "Amd Ryzen9": {},
+            "Amd Threadripper": {}
+        }
     },
-    tier2: {
-        "Intel i5": {},
-        "Amd Ryzen5":{},
-        "Intel i7": {},
-        "Amd Ryzen7": {}
+
+    gpus: {
+        tier1: {
+    
+        },
+        tier2: {
+    
+        },
+        tier3: {
+    
+        }
     },
-    tier3: {
-        "Intel i9": {},
-        "Intel Xeon": {},
-        "Amd Ryzen9": {},
-        "Amd Threadripper": {}
-    }
-}
 
-var gpus = {
-    tier1: {
-
+    rams: {
+        "4gb": {precio: 2000, rendimiento: "bajo"},
+        "8gb": {precio: 7000, rendimiento: "medio"},
+        "16gb": {precio: 14000, rendimiento: "medio-alto"},
+        "32gb": {precio: 30000, rendimiento: "alto"},
+        "64gb": {precio: 67000, rendimiento: "extremo"}
     },
-    tier2: {
 
-    },
-    tier3: {
-
-    }
-}
-
-var rams = {
-    "4gb": {},
-    "8gb": {},
-    "16gb": {},
-    "32gb": {},
-    "64gb": {}
-}
-
-var ssds = {
-    "128gb": {},
-    "256gb": {},
-    "512gb": {},
-    "1tb": {},
-    "2tb": {}
+    ssds: {
+        "128gb": {precio: 4300, rendimiento: "bajo"},
+        "256gb": {precio: 6400, rendimiento: "medio"},
+        "512gb": {precio: 10000, rendimiento: "medio-alto"},
+        "1tb": {precio: 20000, rendimiento: "alto"},
+        "2tb": {precio: 67000, rendimiento: "extremo"}
+    }        
 }
 
 window.onload = loadPresupuesto;
-
+let presupuesto;
 /**
 * Carga la view con la informacion necesaria
 * @method loadPresupuesto
@@ -63,14 +66,16 @@ window.onload = loadPresupuesto;
 function loadPresupuesto() {
     let params = new URLSearchParams(location.search);
     let usuario = params.get("usuario");
-    let presupuesto = params.get("presupuesto");
+    presupuesto = params.get("presupuesto");
     let uso = params.get("uso");
 
     document.getElementById("header").innerHTML = usuario + " ya tenemos tu PC!"
 
     ubicarComponentes(presupuesto, uso);
+    ubicarOpciones();
 }
 
+let resultados = ["tier3", "tier3", "64gb", "2tb"];
 /**
 * Ubica los componentes en la view dependiendo del presupuesto y uso del usuario
 * @method ubicarComponentes
@@ -83,47 +88,48 @@ function ubicarComponentes(presupuesto, uso) {
     let p_gpu = porcentajes[1];
     let p_ram = porcentajes[2];
     let p_ssd = porcentajes[3];
-    let resultados = [tier3, tier3, "64gb", "2tb"];
 
-    for (const key of Object.keys(cpus)) {
+    for (const key of Object.keys(componentes.cpus)) {
         if (p_cpu * presupuesto <= key) {
             resultados[0] = key;
 
-            var cpu = Object.keys(cpus[key])[0]
+            var cpu = Object.keys(componentes.cpus[key])[0];
             document.getElementById("cpu").innerHTML = cpu;
             break;
         }
     }
 
-    for (const key of Object.keys(gpus)) {
+    for (const key of Object.keys(componentes.gpus)) {
         if (p_gpu * presupuesto <= key) {
             resultados[1] = key;
 
-            var gpu = Object.keys(gpus.key)[0]
+            var gpu = Object.keys(componentes.gpus[key])[0];
             document.getElementById("gpu").innerHTML = gpu;
             break;
         }
     }
 
-    for (const key of Object.keys(rams)) {
-        if (p_ram * presupuesto <= rams[key].precio) {
+    for (const key of Object.keys(componentes.rams)) {
+        if (p_ram * presupuesto <= componentes.rams[key].precio) {
             resultados[2] = key;
 
-            var ram = Object.keys(rams[key])
-            document.getElementById("ram").innerHTML = ram;
+            document.getElementById("ram").innerHTML = key;
             break;
         }
     }
 
-    for (const key of Object.keys(ssds)) {
-        if (p_ssd * presupuesto <= ssds[key].precio) {
+    for (const key of Object.keys(componentes.ssds)) {
+        if (p_ssd * presupuesto <= componentes.ssds[key].precio) {
             resultados[3] = key;
 
-            var ssd = Object.keys(ssds[key])
-            document.getElementById("ssd").innerHTML = ssd;
+            document.getElementById("ssd").innerHTML = key;
             break;
         }
     }
+}
+
+function ubicarOpciones() {
+
 }
 
 /**
@@ -133,8 +139,24 @@ function ubicarComponentes(presupuesto, uso) {
 * @param {string} indice - indice del boton clickeado
 */
 function cambiar(componente, indice) {
-    document.getElementById(componente).innerHTML = indice;
+    var curr = document.getElementById(componente);
     var seleccionado = document.getElementById(componente + "-" + indice.toString());
+
+    var title = seleccionado.children[0];
+    var opcion = title.children[0];
+
+    var more = seleccionado.children[1];
+    var precio = more.children[0];
+    var rendimiento = more.children[1];
+
+    var key = curr.innerHTML;
+    var object = componentes[componente + "s"][key];
+
+    curr.innerHTML = opcion.innerHTML;
+    
+    opcion.innerHTML = key;
+    precio.innerHTML = "Precio: " + object.precio;
+    rendimiento.innerHTML = "Rendmiento: " + object.rendimiento;
 }
 
 var currMostrado = "cpu-options";
