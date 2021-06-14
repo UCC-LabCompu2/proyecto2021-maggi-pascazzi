@@ -195,8 +195,6 @@ function cambiar(componente, indice) {
     var key = curr.innerHTML;
     curr.innerHTML = opcion.innerHTML;
 
-    resultados[componente] = curr.innerHTML;
-
     ubicar(componente, key, indice);
     dibujar();
 }
