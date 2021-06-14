@@ -8,15 +8,19 @@ var usos = {
 
 const componentes = {
     cpus: {
-        "Intel i3": {precio: 1, rendimiento: 1},
+        "Intel i3": {precio: 1, rendimiento: "bajo"},
         "Intel i5": {},
         "Intel i7": {},
         "Intel i9": {},
         "Amd Threadripper": {}
     },
 
-    gpus: { // que sean 5 tambien
-        
+    gpus: { 
+        "Integrados": {precio: 0, rendimiento: "bajo"},
+        "Nvidia gtx 1050": {},
+        "Nvidia gtx 1650": {},
+        "Nvidia rtx 2060": {},
+        "Nvidia rtx 3060": {}
     },
 
     rams: {
@@ -56,7 +60,7 @@ function loadPresupuesto() {
 
 let resultados = {
     cpu: "Amd Threadripper",
-    gpu: "",
+    gpu: "Nvidia rtx 3060",
     ram: "64gb",
     ssd: "2tb"
 }
@@ -72,6 +76,11 @@ function ubicarComponentes(presupuesto, uso) {
     let p_gpu = porcentajes[1];
     let p_ram = porcentajes[2];
     let p_ssd = porcentajes[3];
+
+    document.getElementById("cpu").innerHTML = resultados.cpu; // default
+    document.getElementById("gpu").innerHTML = resultados.gpu;
+    document.getElementById("ram").innerHTML = resultados.ram;
+    document.getElementById("ssd").innerHTML = resultados.ssd;
 
     for (const key of Object.keys(componentes.cpus)) {
         if (p_cpu * presupuesto <= componentes.cpus[key].precio) {
