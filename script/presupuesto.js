@@ -8,19 +8,19 @@ var usos = {
 
 const componentes = {
     cpus: {
-        "Intel i3": {precio: 1, rendimiento: "bajo"},
-        "Intel i5": {},
-        "Intel i7": {},
-        "Intel i9": {},
-        "Amd Threadripper": {}
+        "Intel i3": {precio: 15500, rendimiento: "bajo"},
+        "Intel i5": {precio: 26760, rendimiento: "medio"},
+        "Intel i7": {precio: 49020, rendimiento: "med+"},
+        "AMD 5900X": {precio: 77870, rendimiento: "alto"},
+        "AMD 5950X": {precio: 106920, rendimiento: "max"}
     },
 
     gpus: { 
         "Integrados": {precio: 0, rendimiento: "bajo"},
-        "Nvidia gtx 1050": {},
-        "Nvidia gtx 1650": {},
-        "Nvidia rtx 2060": {},
-        "Nvidia rtx 3060": {}
+        "Nvidia gtx 1650": {precio: 79785, rendimiento: "medio"},
+        "Nvidia rtx 3060": {precio: 168999, rendimiento: "medio+"},
+        "Nvidia rtx 3070": {precio: 264991, rendimiento: "alto"},
+        "Nvidia rtx 3080": {precio: 448999, rendimiento: "max"}
     },
 
     rams: {
@@ -59,8 +59,8 @@ function loadPresupuesto() {
 }
 
 let resultados = {
-    cpu: "Amd Threadripper",
-    gpu: "Nvidia rtx 3060",
+    cpu: "AMD 5950X",
+    gpu: "Nvidia rtx 3080",
     ram: "64gb",
     ssd: "2tb"
 }
