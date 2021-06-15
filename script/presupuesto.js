@@ -18,7 +18,7 @@ const componentes = {
     gpus: { 
         "Integrados": {precio: 0, rendimiento: "bajo"},
         "Nvidia gtx 1650": {precio: 79785, rendimiento: "medio"},
-        "Nvidia rtx 3060": {precio: 168999, rendimiento: "medio+"},
+        "Nvidia rtx 3060": {precio: 168999, rendimiento: "med+"},
         "Nvidia rtx 3070": {precio: 264991, rendimiento: "alto"},
         "Nvidia rtx 3080": {precio: 448999, rendimiento: "max"}
     },
