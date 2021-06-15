@@ -56,6 +56,7 @@ function loadPresupuesto() {
 
     ubicarComponentes(presupuesto, uso);
     ubicarOpciones();
+    dibujar();
 }
 
 let resultados = {
@@ -218,5 +219,30 @@ function mostrar(id) {
  * @method dibujar
  */
 function dibujar() {
+    const cpu = document.getElementById('cpu').innerHTML;
+    const gpu = document.getElementById('gpu').innerHTML;
+    const ram = document.getElementById('ram').innerHTML;
+    const ssd = document.getElementById('ssd').innerHTML;
 
+    const cpu_porcentaje = componentes.cpus[cpu].precio / presupuesto;
+    const gpu_porcentaje = componentes.gpus[gpu].precio / presupuesto;
+    const ram_porcentaje = componentes.rams[ram].precio / presupuesto;
+    const ssd_porcentaje = componentes.ssds[ssd].precio / presupuesto;
+
+    const canvas = document.getElementById('grafico');
+    const ctx = canvas.getContext('2d');
+    const max_heigth =  canvas.height * 0.8;
+    const width = canvas.width;
+    const offset = 30;
+    const interval = (width - 2*offset)/4
+
+    const cpu_h = max_heigth * cpu_porcentaje;
+    const gpu_h = max_heigth * gpu_porcentaje;
+    const ram_h = max_heigth * ram_porcentaje;
+    const ssd_h = max_heigth * ssd_porcentaje;
+
+    ctx.fillRect(offset, max_heigth-cpu_h, 20, canvas.height - cpu_h);
+    ctx.fillRect(offset + interval + 10, max_heigth-gpu_h, 20, canvas.height - gpu_h);
+    ctx.fillRect(offset + (interval + 10) * 2, max_heigth-ram_h, 20, canvas.height - ram_h);
+    ctx.fillRect(offset + (interval + 10) * 3, max_heigth-ssd_h, 20, canvas.height - ssd_h);   
 }

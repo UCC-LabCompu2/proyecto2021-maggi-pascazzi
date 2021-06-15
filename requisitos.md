@@ -33,11 +33,11 @@ Accesibilidad:
 
 ### Requisitos del Segundo Parcial
 - [x] Presentación a tiempo del código mediante github (se corregirá el último commit subido a github antes del miercoles)
-- [ ] La página web debe contar con al menos un gráfico representativo realizado mediante canvas y que dependa de los datos ingresados en el ejercicio.
-- [ ] Se deben mostrar mensajes de error si el usuario ejecuta alguna acción inválida o no permitida.
+- [x] La página web debe contar con al menos un gráfico representativo realizado mediante canvas y que dependa de los datos ingresados en el ejercicio.
+- [x] Se deben mostrar mensajes de error si el usuario ejecuta alguna acción inválida o no permitida.
 - [x] El cálculo del ejercicio debe ser el correcto, independientemente de los valores ingresados (sino, tener en cuenta el mensaje de error)
-- [ ] No debe haber errores JavaScripts presentes. (ver con F12 si hay errores)
-- [ ] Las sugerencias sobre el HTML y CSS realizadas en el anterior parcial dejen ser corregidas.
+- [x] No debe haber errores JavaScripts presentes. (ver con F12 si hay errores)
+- [x] Las sugerencias sobre el HTML y CSS realizadas en el anterior parcial dejen ser corregidas.
 - [x] Comentar el código JS adecuadamente.
 ```/**
    * Descripción
