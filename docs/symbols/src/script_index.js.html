@@ -18,15 +18,27 @@
 <span class='line'> 11</span> </span><span class="WHIT">  </span><span class="NAME">tipoDeUso.onchange</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">change</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'> 12</span> 
 <span class='line'> 13</span> </span><span class="WHIT">  </span><span class="NAME">curExplicacion</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.getElementById</span><span class="PUNC">(</span><span class="STRN">'exp-'</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">tipoDeUso.value</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 14</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 15</span> 
-<span class='line'> 16</span> </span><span class="COMM">/**
-<span class='line'> 17</span> * Muestra una breve explicacion de que se necesita para dicho uso
-<span class='line'> 18</span> * @method change
-<span class='line'> 19</span> */</span><span class="WHIT">
-<span class='line'> 20</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">change</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 21</span> </span><span class="WHIT">  </span><span class="NAME">curExplicacion.hidden</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 22</span> </span><span class="WHIT">  </span><span class="NAME">curExplicacion</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.getElementById</span><span class="PUNC">(</span><span class="STRN">'exp-'</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">this.value</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 23</span> </span><span class="WHIT">  </span><span class="NAME">curExplicacion.hidden</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 24</span> </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'> 25</span> </span></pre></body></html>
+<span class='line'> 14</span> 
+<span class='line'> 15</span> </span><span class="WHIT">  </span><span class="NAME">document.getElementById</span><span class="PUNC">(</span><span class="STRN">'pres'</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">onchange</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">checkPresupuesto</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 16</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 17</span> 
+<span class='line'> 18</span> </span><span class="COMM">/**
+<span class='line'> 19</span> * Muestra una breve explicacion de que se necesita para dicho uso
+<span class='line'> 20</span> * @method change
+<span class='line'> 21</span> */</span><span class="WHIT">
+<span class='line'> 22</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">change</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 23</span> </span><span class="WHIT">  </span><span class="NAME">curExplicacion.hidden</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 24</span> </span><span class="WHIT">  </span><span class="NAME">curExplicacion</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">document.getElementById</span><span class="PUNC">(</span><span class="STRN">'exp-'</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">this.value</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 25</span> </span><span class="WHIT">  </span><span class="NAME">curExplicacion.hidden</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 27</span> 
+<span class='line'> 28</span> </span><span class="COMM">/**
+<span class='line'> 29</span>  * Checkea que el presupuesto sea suficiente para armar una PC
+<span class='line'> 30</span>  * @method checkPresupuesto
+<span class='line'> 31</span>  */</span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">checkPresupuesto</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 33</span> </span><span class="WHIT">  </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.value</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">21800</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="WHIT">    </span><span class="NAME">alert</span><span class="PUNC">(</span><span class="STRN">"Por menos de 21800 no vas a poder comprar nada"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 35</span> </span><span class="WHIT">  </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 36</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 37</span> </span></pre></body></html>

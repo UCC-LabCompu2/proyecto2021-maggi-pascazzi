@@ -18,7 +18,7 @@ const componentes = {
     gpus: { 
         "Integrados": {precio: 0, rendimiento: "bajo"},
         "Nvidia gtx 1650": {precio: 79785, rendimiento: "medio"},
-        "Nvidia rtx 3060": {precio: 168999, rendimiento: "medio+"},
+        "Nvidia rtx 3060": {precio: 168999, rendimiento: "med+"},
         "Nvidia rtx 3070": {precio: 264991, rendimiento: "alto"},
         "Nvidia rtx 3080": {precio: 448999, rendimiento: "max"}
     },
@@ -84,38 +84,34 @@ function ubicarComponentes(presupuesto, uso) {
     document.getElementById("ssd").innerHTML = resultados.ssd;
 
     for (const key of Object.keys(componentes.cpus)) {
-        if (p_cpu * presupuesto <= componentes.cpus[key].precio) {
+        if (p_cpu * presupuesto >= componentes.cpus[key].precio) {
             resultados.cpu = key;
 
             document.getElementById("cpu").innerHTML = key;
-            break;
         }
     }
 
     for (const key of Object.keys(componentes.gpus)) {
-        if (p_gpu * presupuesto <= componentes.gpus[key].precio) {
+        if (p_gpu * presupuesto >= componentes.gpus[key].precio) {
             resultados.gpu = key;
 
             document.getElementById("gpu").innerHTML = key;
-            break;
         }
     }
 
     for (const key of Object.keys(componentes.rams)) {
-        if (p_ram * presupuesto <= componentes.rams[key].precio) {
+        if (p_ram * presupuesto >= componentes.rams[key].precio) {
             resultados.ram = key;
 
             document.getElementById("ram").innerHTML = key;
-            break;
         }
     }
 
     for (const key of Object.keys(componentes.ssds)) {
-        if (p_ssd * presupuesto <= componentes.ssds[key].precio) {
+        if (p_ssd * presupuesto >= componentes.ssds[key].precio) {
             resultados.ssd = key;
 
             document.getElementById("ssd").innerHTML = key;
-            break;
         }
     }
 }
@@ -219,10 +215,12 @@ function mostrar(id) {
  * @method dibujar
  */
 function dibujar() {
+    
     const cpu = document.getElementById('cpu').innerHTML;
     const gpu = document.getElementById('gpu').innerHTML;
     const ram = document.getElementById('ram').innerHTML;
     const ssd = document.getElementById('ssd').innerHTML;
+    const total = componentes.cpus[cpu].precio + componentes.gpus[gpu].precio + componentes.rams[ram].precio +componentes.ssds[ssd].precio
 
     const cpu_porcentaje = componentes.cpus[cpu].precio / presupuesto;
     const gpu_porcentaje = componentes.gpus[gpu].precio / presupuesto;
@@ -231,6 +229,10 @@ function dibujar() {
 
     const canvas = document.getElementById('grafico');
     const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.font = "10px Arial";
+    ctx.fillStyle = "#000000";
+    ctx.fillText("Total gastado: $" + total.toString(), 10, 10);
     const max_heigth =  canvas.height * 0.8;
     const width = canvas.width;
     const offset = 30;
@@ -241,8 +243,16 @@ function dibujar() {
     const ram_h = max_heigth * ram_porcentaje;
     const ssd_h = max_heigth * ssd_porcentaje;
 
-    ctx.fillRect(offset, max_heigth-cpu_h, 20, canvas.height - cpu_h);
-    ctx.fillRect(offset + interval + 10, max_heigth-gpu_h, 20, canvas.height - gpu_h);
-    ctx.fillRect(offset + (interval + 10) * 2, max_heigth-ram_h, 20, canvas.height - ram_h);
-    ctx.fillRect(offset + (interval + 10) * 3, max_heigth-ssd_h, 20, canvas.height - ssd_h);   
+    ctx.fillStyle = "#2196f3";
+    ctx.fillRect(offset, canvas.height-cpu_h, 20, cpu_h);
+    ctx.fillText(Math.round(cpu_porcentaje * 100), offset - 20, canvas.height-5);
+    
+    ctx.fillRect(offset + interval + 10, canvas.height-gpu_h, 20, gpu_h);
+    ctx.fillText(Math.round(gpu_porcentaje * 100), offset + interval - 10, canvas.height-5);
+
+    ctx.fillRect(offset + (interval + 10) * 2, canvas.height-ram_h, 20, ram_h);
+    ctx.fillText(Math.round(ram_porcentaje * 100), offset + interval*2, canvas.height-5);
+
+    ctx.fillRect(offset + (interval + 10) * 3, canvas.height-ssd_h, 20, ssd_h);  
+    ctx.fillText(Math.round(ssd_porcentaje * 100), offset + interval*3 + 10, canvas.height-5);
 }
