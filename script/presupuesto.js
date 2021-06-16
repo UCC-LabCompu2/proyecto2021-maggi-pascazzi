@@ -244,15 +244,19 @@ function dibujar() {
     const ssd_h = max_heigth * ssd_porcentaje;
 
     ctx.fillStyle = "#2196f3";
-    ctx.fillRect(offset, canvas.height-cpu_h, 20, cpu_h);
+    ctx.fillRect(offset, canvas.height-cpu_h -20, 20, cpu_h);
+    ctx.fillText("cpu", offset, canvas.height-5);
     ctx.fillText(Math.round(cpu_porcentaje * 100), offset - 20, canvas.height-5);
     
-    ctx.fillRect(offset + interval + 10, canvas.height-gpu_h, 20, gpu_h);
+    ctx.fillRect(offset + interval + 10, canvas.height-gpu_h -20, 20, gpu_h);
+    ctx.fillText("gpu", offset + interval+10, canvas.height-5);
     ctx.fillText(Math.round(gpu_porcentaje * 100), offset + interval - 10, canvas.height-5);
 
-    ctx.fillRect(offset + (interval + 10) * 2, canvas.height-ram_h, 20, ram_h);
+    ctx.fillRect(offset + (interval + 10) * 2, canvas.height-ram_h -20, 20, ram_h);
+    ctx.fillText("ram", offset + interval*2 + 20, canvas.height-5);
     ctx.fillText(Math.round(ram_porcentaje * 100), offset + interval*2, canvas.height-5);
 
-    ctx.fillRect(offset + (interval + 10) * 3, canvas.height-ssd_h, 20, ssd_h);  
+    ctx.fillRect(offset + (interval + 10) * 3, canvas.height-ssd_h -20, 20, ssd_h);
+    ctx.fillText("ssd", offset + interval*3 + 30, canvas.height-5);  
     ctx.fillText(Math.round(ssd_porcentaje * 100), offset + interval*3 + 10, canvas.height-5);
 }
