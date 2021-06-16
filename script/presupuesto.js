@@ -9,7 +9,7 @@ var usos = {
 const componentes = {
     cpus: {
         "Intel i3": {precio: 15500, rendimiento: "bajo"},
-        "Intel i5": {precio: 26760, rendimiento: "medio"},
+        "Intel i5": {precio: 26760, rendimiento: "med"},
         "Intel i7": {precio: 49020, rendimiento: "med+"},
         "AMD 5900X": {precio: 77870, rendimiento: "alto"},
         "AMD 5950X": {precio: 106920, rendimiento: "max"}
@@ -17,7 +17,7 @@ const componentes = {
 
     gpus: { 
         "Integrados": {precio: 0, rendimiento: "bajo"},
-        "Nvidia gtx 1650": {precio: 79785, rendimiento: "medio"},
+        "Nvidia gtx 1650": {precio: 79785, rendimiento: "med"},
         "Nvidia rtx 3060": {precio: 168999, rendimiento: "med+"},
         "Nvidia rtx 3070": {precio: 264991, rendimiento: "alto"},
         "Nvidia rtx 3080": {precio: 448999, rendimiento: "max"}
@@ -25,7 +25,7 @@ const componentes = {
 
     rams: {
         "4gb": {precio: 2000, rendimiento: "bajo"},
-        "8gb": {precio: 7000, rendimiento: "medio"},
+        "8gb": {precio: 7000, rendimiento: "med"},
         "16gb": {precio: 14000, rendimiento: "med+"},
         "32gb": {precio: 30000, rendimiento: "alto"},
         "64gb": {precio: 67000, rendimiento: "max"}
@@ -33,7 +33,7 @@ const componentes = {
 
     ssds: {
         "128gb": {precio: 4300, rendimiento: "bajo"},
-        "256gb": {precio: 6400, rendimiento: "medio"},
+        "256gb": {precio: 6400, rendimiento: "med"},
         "512gb": {precio: 10000, rendimiento: "med+"},
         "1tb": {precio: 20000, rendimiento: "alto"},
         "2tb": {precio: 67000, rendimiento: "max"}
