@@ -12,7 +12,7 @@ function loadIndex() {
 
   curExplicacion = document.getElementById('exp-' + tipoDeUso.value);
 
-  document.getElementById('pres').onchange = checkPresupuesto();
+  document.getElementById('pres').onchange = checkPresupuesto;
 };
 
 /**
