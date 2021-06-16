@@ -231,8 +231,6 @@ function dibujar() {
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.font = "10px Arial";
-    ctx.fillStyle = "#000000";
-    ctx.fillText("Total gastado: $" + total.toString(), 10, 10);
     const max_heigth =  canvas.height * 0.8;
     const width = canvas.width;
     const offset = 30;
@@ -259,4 +257,7 @@ function dibujar() {
     ctx.fillRect(offset + (interval + 10) * 3, canvas.height-ssd_h -20, 20, ssd_h);
     ctx.fillText("ssd", offset + interval*3 + 30, canvas.height-5);  
     ctx.fillText(Math.round(ssd_porcentaje * 100), offset + interval*3 + 10, canvas.height-5);
+
+    ctx.fillStyle = "#000000";
+    ctx.fillText("Total gastado: $" + total.toString(), 10, 10);
 }
