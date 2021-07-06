@@ -1,5 +1,8 @@
 # PC part picker
 
+## Descripcion
+PC Part Picker es una pagina que te arma una PC ideal en base a tus necesidades y presupuesto
+
 ## Autores
 
   * Francisco **Maggi**
