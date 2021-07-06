@@ -14,5 +14,10 @@
 
 Enlace al proyecto: [Part Picker](https://ucc-labcompu2.github.io/proyecto2021-maggi-pascazzi/)
 
+## Tecnologias usadas
+  * Html
+  * CSS
+  * JavaScript
+
 :point_up:
 
