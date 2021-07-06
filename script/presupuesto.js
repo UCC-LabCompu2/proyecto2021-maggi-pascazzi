@@ -210,23 +210,43 @@ function mostrar(id) {
     currMostrado = id + "-options";
 }
 
+var cpu_porcentaje;
+var gpu_porcentaje;
+var ram_porcentaje;
+var ssd_porcentaje;
+var total;
+
+var x = -40;
+var dx = 1;
+var id = -1;
 /**
- * Dibuja el grafico en el canvas
+ * Prepara todo para dibujar en el canvas y llama a setInerval
  * @method dibujar
  */
 function dibujar() {
     
+    if (id !== -1) {
+        clearInterval(id);
+    }
     const cpu = document.getElementById('cpu').innerHTML;
     const gpu = document.getElementById('gpu').innerHTML;
     const ram = document.getElementById('ram').innerHTML;
     const ssd = document.getElementById('ssd').innerHTML;
-    const total = componentes.cpus[cpu].precio + componentes.gpus[gpu].precio + componentes.rams[ram].precio +componentes.ssds[ssd].precio
+    total = componentes.cpus[cpu].precio + componentes.gpus[gpu].precio + componentes.rams[ram].precio +componentes.ssds[ssd].precio
 
-    const cpu_porcentaje = componentes.cpus[cpu].precio / presupuesto;
-    const gpu_porcentaje = componentes.gpus[gpu].precio / presupuesto;
-    const ram_porcentaje = componentes.rams[ram].precio / presupuesto;
-    const ssd_porcentaje = componentes.ssds[ssd].precio / presupuesto;
+    cpu_porcentaje = componentes.cpus[cpu].precio / presupuesto;
+    gpu_porcentaje = componentes.gpus[gpu].precio / presupuesto;
+    ram_porcentaje = componentes.rams[ram].precio / presupuesto;
+    ssd_porcentaje = componentes.ssds[ssd].precio / presupuesto;
+    x = -40;
+    id = setInterval(animarTotal, 5);
+}
 
+/**
+ * Anima el movimiento del total gastado y dibuja el canvas
+ * @method animarTotal
+ */
+function animarTotal() {
     const canvas = document.getElementById('grafico');
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -259,5 +279,9 @@ function dibujar() {
     ctx.fillText(Math.round(ssd_porcentaje * 100), offset + interval*3 + 10, canvas.height-5);
 
     ctx.fillStyle = "#000000";
-    ctx.fillText("Total gastado: $" + total.toString(), 10, 10);
+    ctx.fillText("Total gastado: $" + total.toString(), x, 10);
+
+    if (x <= canvas.width - ctx.measureText(total.toString()).width * 4) {
+        x += dx;
+    }
 }

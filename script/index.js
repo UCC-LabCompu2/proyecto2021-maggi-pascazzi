@@ -13,6 +13,7 @@ function loadIndex() {
   curExplicacion = document.getElementById('exp-' + tipoDeUso.value);
 
   document.getElementById('pres').onchange = checkPresupuesto;
+  document.getElementById('usuario').onchange = checkNombre;
 };
 
 /**
@@ -32,5 +33,20 @@ function change() {
 function checkPresupuesto() {
   if (this.value < 21800) {
     alert("Por menos de 21800 no vas a poder comprar nada");
+  }
+}
+
+/**
+ * Controla que no haya numeros en el nombre y limpia el campo de ser asi
+ * @method checkNombre
+ * @returns nada - vuelve cuando ve un numeor
+ */
+function checkNombre() {
+  for (const c of this.value) {
+    if ((c >='0' && c <='9' )) {
+      alert("No se pueden usar numeros en el nombre");
+      this.value = "";
+      return;
+    }
   }
 }
